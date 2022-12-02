@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PeluqueriaApplication<peluqueria>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.ciclo4.peluqueria.PeluqueriaApplication",
+            "projectName": "peluqueria",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
