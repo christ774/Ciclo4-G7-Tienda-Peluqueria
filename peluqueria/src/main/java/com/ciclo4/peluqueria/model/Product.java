@@ -17,9 +17,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Product { //Tarea asignada a Juan Felipe
     @Id
     private String id;
-    private String corteHombre;
-    private String corteMujer;
-    private String manicure;
-    private String pedicure;
-    private String barba;
+    private String tipoServicio;
+    private Integer precio;
+    private Integer duracionServicio;
+    private String idCliente;
 }
