@@ -1,5 +1,6 @@
 package com.ciclo4.peluqueria.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -14,7 +15,7 @@ import lombok.Setter;
 @Setter
 
 public class Client {
-
+    @Id
     private String id;
     private String name;
     private String surname;
