@@ -1,8 +1,9 @@
 package com.ciclo4.peluqueria.service;
 
 
-import com.ciclo4.peluqueria.model.Client;
+
 import com.ciclo4.peluqueria.model.Employee;
+
 import com.ciclo4.peluqueria.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class EmployeeService {
     //Tarea asignada a Christian
     @Autowired
     EmployeeRepository employeeRepository;
+
 
     public String saveEmployee(Employee employee) {
         employee.setName(employee.getName().toLowerCase());
@@ -49,4 +51,5 @@ public class EmployeeService {
             return " empleado No a sido eliminado";
         }
     }
+
 }

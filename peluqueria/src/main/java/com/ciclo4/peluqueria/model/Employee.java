@@ -1,6 +1,7 @@
 package com.ciclo4.peluqueria.model;
 
 
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Employee {
     private String email;
     private long phoneNumber;
     private String gender;
+
 
 
 
