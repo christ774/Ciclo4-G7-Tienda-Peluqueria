@@ -5,22 +5,26 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("servicios")
-@Getter
-@Setter
+import java.time.LocalDate;
+import java.util.List;
+
+@Document("agendas")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+public class Diary {
 
-public class Product { //Tarea asignada a Juan Felipe
-    @Id
+
     private String id;
+    private String id_employee;
+    private String name_employee;
+    private String name_client;
     private String service;
-    private Integer cost;
-    private Integer durationService;
-    private String idClient;
+    private LocalDate date;
+    private List<Appoinment> citas;
 
 
 }
