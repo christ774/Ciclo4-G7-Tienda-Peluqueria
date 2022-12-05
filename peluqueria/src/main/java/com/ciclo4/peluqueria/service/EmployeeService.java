@@ -46,9 +46,9 @@ public class EmployeeService {
         if (employeeRepository.existsById(id)) {
             Optional<Employee> client = employeeRepository.findById(id);
             employeeRepository.deleteById(id);
-            return "Empleado  " + client.get().getName() + " a sido eliminado";
+            return "Empleado  " + client.get().getName() + " ha sido eliminado";
         } else {
-            return " empleado No a sido eliminado";
+            return " Empleado no ha sido eliminado";
         }
     }
 

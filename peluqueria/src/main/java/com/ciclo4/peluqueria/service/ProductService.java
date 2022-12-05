@@ -24,6 +24,7 @@ public class ProductService {
     }
 
     public String saveProduct(Product product){
+        product.setService(product.getService().toLowerCase());
         boolean state = product.getId() == null || !productRepository.existsById(product.getId());
         productRepository.save(product);
 
@@ -42,12 +43,9 @@ public class ProductService {
         if (productRepository.existsById(id)){
             Optional<Product> product = productRepository.findById(id);
             productRepository.deleteById(id);
-            return "Producto con ID: "+product.get().getId()+ " eliminado";}
+            return "Producto "+product.get().getService()+ " eliminado";}
             else {
-                return "No eliminado";
+                return "Producto no eliminado";
             }
         }
 }
-
-}
-

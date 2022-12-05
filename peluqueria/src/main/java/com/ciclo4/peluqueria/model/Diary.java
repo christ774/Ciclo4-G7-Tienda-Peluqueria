@@ -24,7 +24,7 @@ public class Diary {
     private String name_client;
     private String service;
     private LocalDate date;
-    private List<Appoinment> citas;
+    private List<Appointment> citas;
 
 
 }
