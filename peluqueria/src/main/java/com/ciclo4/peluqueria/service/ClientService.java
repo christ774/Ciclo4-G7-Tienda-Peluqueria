@@ -17,8 +17,8 @@ public class ClientService {
     ClientRepository clientRepository;
     
     public String saveClient(Client client) {
-        client.setName(client.getName().toLowerCase());
-        client.setSurname(client.getSurname().toLowerCase());
+        client.setName_surname(client.getName_surname().toLowerCase());
+        client.setName_surname(client.getName_surname().toLowerCase());
         boolean state=client.getId() == null || !clientRepository.existsById(client.getId());
         clientRepository.save(client);
 
@@ -31,7 +31,7 @@ public class ClientService {
 
     public List<Client> getListClientOrdered() {
         List<Client> clientsList = clientRepository.findAll();
-        clientsList.sort(Comparator.comparing(Client::getName));
+        clientsList.sort(Comparator.comparing(Client::getName_surname));
         return clientsList;
     }
 
@@ -43,7 +43,7 @@ public class ClientService {
         if (clientRepository.existsById(id)) {
             Optional<Client> client = clientRepository.findById(id);
             clientRepository.deleteById(id);
-            return "Cliente" + client.get().getName() + " eliminado";
+            return "Cliente " + client.get().getName_surname() + " eliminado";
         } else {
             return "No eliminado";
         }

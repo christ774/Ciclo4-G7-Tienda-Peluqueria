@@ -22,24 +22,14 @@ import java.util.List;
 public class Employee {
     @Id
     private String id;
-    @Field("name")
-    private String name;
-    @Field("surname")
-    private String surname;
-    @Field("identification")
+
+    private String name_surname;
     private Long identification;
-    @Field("specialty")
     private String specialty;
-    @Field("username")
-    private String username;
-    @Field("password")
-    private String password;
-    @Field("email")
     private String email;
-    @Field("phoneNumber")
     private long phoneNumber;
-    @Field("gender")
-    private String gender;
+    private  String address;
+
 
 
 

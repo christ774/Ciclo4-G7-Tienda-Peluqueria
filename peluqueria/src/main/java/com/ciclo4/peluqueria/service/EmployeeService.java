@@ -8,7 +8,7 @@ import com.ciclo4.peluqueria.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -20,8 +20,8 @@ public class EmployeeService {
 
 
     public String saveEmployee(Employee employee) {
-        employee.setName(employee.getName().toLowerCase());
-        employee.setSurname(employee.getSurname().toLowerCase());
+        //employee.setName_surname(employee.getName_surname().toLowerCase());
+        //employee.setName_surname(employee.getName_surname().toLowerCase());
         boolean state=employee.getId() == null || !employeeRepository.existsById(employee.getId());
         employeeRepository.save(employee);
 
@@ -34,7 +34,7 @@ public class EmployeeService {
 
     public List<Employee> getListEmployeeOrdered() {
         List<Employee> EmployeeList = employeeRepository.findAll();
-        EmployeeList.sort(Comparator.comparing(Employee::getName));
+        //EmployeeList.sort(Comparator.comparing(Employee::getName_surname));
         return EmployeeList;
     }
 
@@ -46,7 +46,7 @@ public class EmployeeService {
         if (employeeRepository.existsById(id)) {
             Optional<Employee> client = employeeRepository.findById(id);
             employeeRepository.deleteById(id);
-            return "Empleado  " + client.get().getName() + " a sido eliminado";
+            return "Empleado  " + client.get().getName_surname() + " a sido eliminado";
         } else {
             return " empleado No a sido eliminado";
         }
