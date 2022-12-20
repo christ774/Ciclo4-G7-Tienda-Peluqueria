@@ -3,7 +3,9 @@ package com.ciclo4.peluqueria.service;
 
 import com.ciclo4.peluqueria.model.Diary;
 
+import com.ciclo4.peluqueria.model.Employee;
 import com.ciclo4.peluqueria.repository.DiaryRepository;
+import com.ciclo4.peluqueria.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,35 +18,34 @@ public class DiaryService {
     @Autowired
     DiaryRepository diaryRepository;
 
-    public String saveDiary(Diary diary) {
+    @Autowired
+    EmployeeRepository employeeRepository;
 
-        boolean state=diary.getId() == null || !diaryRepository.existsById(diary.getId());
-        diaryRepository.save(diary);
-
-        if (state) {
-            return "la agenda creado correctamente";
-        } else {
-            return "La información de la agenda ha sido actualizada";
-        }
+    public List<Diary>getAllDiarys(){
+        return diaryRepository.findAll();
     }
 
-    public List<Diary> getListDiaryOrdered() {
-        List<Diary> diaryList = diaryRepository.findAll();
-        diaryList.sort(Comparator.comparing(Diary::getId));
-        return diaryList;
+    public Diary saveDiary(Diary diary) {
+        return diaryRepository.save(diary);
+
     }
+
 
     public Optional<Diary> getDiaryById(String id) {
-        return diaryRepository.findById(id);
+        Optional <Diary> diary= diaryRepository.findById(id);
+        Optional <Employee> employee = employeeRepository.findById(diary.get().getId_employee());
+        diary.get().setName_employee(employee.get().getName_surname());
+        diary.get().setSpecialty(employee.get().getSpecialty());
+        return diary;
     }
 
     public String deleteById(String id) {
         if (diaryRepository.existsById(id)) {
-            Optional<Diary> diary = diaryRepository.findById(id);
             diaryRepository.deleteById(id);
-            return "Agenda del cliente  " + diary.get().getCitas() + "  Asi eliminado";
+            return "Agenda eliminada";
         } else {
-            return " la agenda del Cliente No a sido eliminado ";
+            return " la agenda  No a sido eliminado ";
         }
     }
+
 }

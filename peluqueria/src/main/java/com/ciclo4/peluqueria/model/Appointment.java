@@ -2,11 +2,7 @@ package com.ciclo4.peluqueria.model;
 
 
 
-import java.time.LocalDate;
 
-
-
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
@@ -22,10 +18,8 @@ import lombok.Setter;
 
 public class Appointment {
 
-    private String id;
-    @DBRef
-    private Client client_id;
-    private LocalDate fecha_hora;
+    private String client_id;
+    private String hora;
 
 
     

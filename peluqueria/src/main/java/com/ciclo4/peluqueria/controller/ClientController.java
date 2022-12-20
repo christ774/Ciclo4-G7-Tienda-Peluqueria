@@ -11,7 +11,7 @@ import com.ciclo4.peluqueria.service.ClientService;
 
 @RestController
 @RequestMapping("/clientes")
-@CrossOrigin(origins = "*")
+@CrossOrigin (origins ="*",methods ={RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class ClientController {
 
     @Autowired

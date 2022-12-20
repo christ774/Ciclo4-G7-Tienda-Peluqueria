@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/empleado")
-@CrossOrigin(origins = "*")
+@CrossOrigin (origins ="*",methods ={RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;

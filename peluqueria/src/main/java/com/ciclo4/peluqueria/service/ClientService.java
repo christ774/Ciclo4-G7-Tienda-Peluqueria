@@ -31,7 +31,7 @@ public class ClientService {
 
     public List<Client> getListClientOrdered() {
         List<Client> clientsList = clientRepository.findAll();
-        clientsList.sort(Comparator.comparing(Client::getName_surname));
+       // clientsList.sort(Comparator.comparing(Client::getName_surname));
         return clientsList;
     }
 

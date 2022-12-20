@@ -18,7 +18,7 @@ public class AppointmentService {
     
     public String saveAppointment(Appointment appointment) {
 
-        boolean state=appointment.getId() == null || !appointmentRepository.existsById(appointment.getId());
+        boolean state=appointment.getClient_id() == null || !appointmentRepository.existsById(appointment.getClient_id());
         appointmentRepository.save(appointment);
 
         if (state) {
@@ -30,7 +30,7 @@ public class AppointmentService {
 
     public List<Appointment> getListAppointmentOrdered() {
         List<Appointment> appointmentsList = appointmentRepository.findAll();
-        appointmentsList.sort(Comparator.comparing(Appointment::getId));
+        appointmentsList.sort(Comparator.comparing(Appointment::getClient_id));
         return appointmentsList;
     }
 
@@ -42,7 +42,7 @@ public class AppointmentService {
         if (appointmentRepository.existsById(idappointment)) {
             Optional<Appointment> appointment = appointmentRepository.findById(idappointment);
             appointmentRepository.deleteById(idappointment);
-            return "cita" + appointment.get().getId() + " eliminado";
+            return "cita" + appointment.get().getClient_id() + " eliminado";
         } else {
             return "No eliminado";
         }

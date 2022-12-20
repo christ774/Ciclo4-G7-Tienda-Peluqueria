@@ -14,15 +14,15 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/agendas")
-@CrossOrigin(origins = "*")
+@CrossOrigin (origins ="*",methods ={RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 public class DiaryController {
 
     @Autowired
     DiaryService diaryService;
 
     @GetMapping()
-    public List<Diary> getAll(){
-        return diaryService.getListDiaryOrdered();
+    public List<Diary> findAllDiary(){
+        return diaryService.getAllDiarys();
     }
 
     @GetMapping("/{id}")
@@ -31,7 +31,7 @@ public class DiaryController {
     }
 
     @PostMapping()
-    public String saveDiary(@RequestBody Diary diary) {
+    public Diary saveDiary(@RequestBody Diary diary) {
         return diaryService.saveDiary(diary);
     }
 

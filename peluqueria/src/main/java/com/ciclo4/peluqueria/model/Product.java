@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("servicios")
 @Getter
@@ -17,6 +18,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Product { //Tarea asignada a Juan Felipe
     @Id
     private String id;
+
+
     private String service;
     private Integer cost;
     private Integer durationService;
